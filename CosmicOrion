@@ -1,3 +1,38 @@
+-- Whitelist Setup
+local WhitelistedUsers = {
+    "TCUTCU_LLBDDLLZYXZY", 
+    "",
+    "starronyxx",
+    "", 
+    "S4PERI0R",
+    "",
+    "M0onR3b0rn",
+    "",
+    "TCUALWAYSWINSSSS_TCU",
+    "",
+}
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+-- Function to check if the player is whitelisted
+local function isWhitelisted(username)
+    for _, whitelistedName in ipairs(WhitelistedUsers) do
+        if username == whitelistedName then
+            return true
+        end
+    end
+    return false
+end
+
+-- Check if the player is allowed to use the script
+if not isWhitelisted(LocalPlayer.Name) then
+    -- If not whitelisted, display a notification and stop the script
+    game.Players.LocalPlayer:Kick("You are not whitelisted. Message doggy.doggo123 on discord to get access.")
+    return
+end
+
+
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
